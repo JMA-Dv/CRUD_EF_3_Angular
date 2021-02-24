@@ -1,0 +1,35 @@
+<div class="row first-row">
+    <div class="col-lg-6">
+        <h3>Comments list</h3>
+    </div>
+
+    <div class="col-lg-6 text-end">
+        <button class="btn btn-primary " [routerLink]="['add']" >New Comment</button>
+    </div>
+</div>
+<div class="spinner-border text-primary" role="status" *ngIf="loading">
+    <span class="sr-only">Loading...</span>
+</div>
+
+
+<br>
+<table class="table table-sm table-hover">
+    <thead>
+        <th>Title</th>
+        <th>Created by</th>
+        <th>Date</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let comment of listComment">
+            <td>  <a [routerLink]="['/watch/',comment.id]" >{{comment.title}}</a> </td>
+            <td>{{comment.createdBy}}</td>
+            <td>{{comment.dateCreated | date: 'dd/MM/yy'}}</td>
+            <td> <button class="btn btn-primary btn-sm float-right" [routerLink]="['/edit/',comment.id]">Update </button> </td>
+            <td><button class="btn btn-danger btn-sm float-right" (click)="deleteComment(comment.id)">Delete </button> </td>
+        </tr>
+        
+        
+    </tbody>
+</table>

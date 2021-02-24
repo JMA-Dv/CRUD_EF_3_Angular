@@ -1,0 +1,12 @@
+<div class="spinner-border text-primary" role="status" *ngIf="loading">
+    <span class="sr-only">Loading...</span>
+</div>
+
+<div>
+    <h3>{{comment.title}} </h3>
+    <h5>{{comment.text}}</h5>
+    <ul class="no-decoration">
+        <li>{{comment.createdBy}} </li>
+        <li>{{comment.dateCreated | date:'dd/MM/yyyy '}}</li>
+    </ul>
+</div>
